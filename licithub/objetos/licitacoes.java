@@ -1,4 +1,4 @@
-package LicitHub.objetos;
+package objetos;
 
 public class licitacoes {
 
