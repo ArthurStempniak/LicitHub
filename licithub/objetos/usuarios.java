@@ -1,5 +1,7 @@
 package objetos;
 
+import java.util.ArrayList;
+
 public class usuarios {
 
     private String nome;
@@ -9,6 +11,8 @@ public class usuarios {
     private String email;
     private String senha;
     private String id;
+
+    private ArrayList<licitacoes> licitacoesParticipando = new ArrayList<>();
 
     public usuarios(String nome, String cpf, String endereco, String telefone, String email, String senha, String id) {
         this.nome = nome;
@@ -20,6 +24,19 @@ public class usuarios {
         this.id = id;
     }
 
+
+    public void adicionarLicitacao(licitacoes lic) {
+        if (!licitacoesParticipando.contains(lic)) {
+            licitacoesParticipando.add(lic);
+        }
+    }
+    
+    public ArrayList<licitacoes> getLicitacoesParticipando() {
+        return licitacoesParticipando;
+    }
+    
+
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -83,6 +100,5 @@ public class usuarios {
                 ", senha='" + senha + '\'' +
                 ", id='" + id + '\'' +
                 '}';
-    
-}
+    }
 }

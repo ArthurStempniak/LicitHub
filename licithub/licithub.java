@@ -20,11 +20,56 @@ public class licithub {
         String resposta = scan.nextLine();
 
         if (resposta.equalsIgnoreCase("sim")) {
-            inicio();
-        } else {
+            
+                System.out.println("Bem-Vindo ao LicitHub!" +
+                        "\nA maneira mais fácil de encontrar e participar de licitações públicas." +
+                        "\n\nEncontre Oportunidades\nBusque licitações por categoria, região ou valor e nunca perca uma oportunidade." +
+                        "\n\nAlertas Personalizados\nReceba notificações sobre novas licitações que correspondam aos seus critérios." +
+                        "\n\nGestão Completa\nAcompanhe prazos, documentos e requisitos de cada licitação em um só lugar.");
+                        
+                System.out.println("Gostaria de fazer login agora? (sim/não)");
+                String loginAgora = scan.nextLine();
+                if (loginAgora.equalsIgnoreCase("sim")) {
+                    System.out.println("Deseja fazer login como usuário ou como admin?" +
+                            "\n1 - Usuário" + "\n2 - Admin" + "\n3 - Criar Conta");
 
-            System.out.println("Deseja fazer login como usuário ou como admin?" +
-                    "\n1 - Usuário" + "\n2 - Admin");
+                    int opcao = scan.nextInt();
+                    scan.nextLine(); 
+
+                    if (opcao == 1) {
+                        login();
+                    } else if (opcao == 2) {
+                        loginadmin();
+                    } else if (opcao == 3) {
+                        System.out.println("Criar conta de usuário...");
+                        System.out.println("Digite seu nome:");
+                        String nome = scan.nextLine();
+                        System.out.println("Digite seu CPF:");
+                        String cpf = scan.nextLine();
+                        System.out.println("Digite seu endereço:");
+                        String endereco = scan.nextLine();
+                        System.out.println("Digite seu telefone:");
+                        String telefone = scan.nextLine();
+                        System.out.println("Digite seu e-mail:");
+                        String email = scan.nextLine();
+                        System.out.println("Digite sua senha:");
+                        String senha = scan.nextLine();
+
+                        usuarios novoUsuario = new usuarios(nome, cpf, endereco, telefone, email, senha, String.valueOf(listaUsuarios.size() + 1));
+                        listaUsuarios.add(novoUsuario);
+
+                        System.out.println("Conta criada com sucesso!");
+                        login();
+                    } else {
+                        System.out.println("Opção inválida!");
+                    }
+                } else {
+                    System.out.println("Você pode fazer login mais tarde.");
+                }
+        } else if (resposta.equalsIgnoreCase("não")) {
+            System.out.println("Você pode fazer login diretamente." +
+                    "\n\nDeseja fazer login como usuário ou como admin?" +
+                    "\n1 - Usuário" + "\n2 - Admin" + "\n3 - Criar Conta");
 
             int opcao = scan.nextInt();
             scan.nextLine(); 
@@ -33,6 +78,81 @@ public class licithub {
                 login();
             } else if (opcao == 2) {
                 loginadmin();
+            } else if (opcao == 3) {
+                System.out.println("Criar conta de usuário...");
+                System.out.println("Digite seu nome:");
+                String nome = scan.nextLine();
+                System.out.println("Digite seu CPF:");
+                String cpf = scan.nextLine();
+                System.out.println("Digite seu endereço:");
+                String endereco = scan.nextLine();
+                System.out.println("Digite seu telefone:");
+                String telefone = scan.nextLine();
+                System.out.println("Digite seu e-mail:");
+                String email = scan.nextLine();
+                System.out.println("Digite sua senha:");
+                String senha = scan.nextLine();
+
+                usuarios novoUsuario = new usuarios(nome, cpf, endereco, telefone, email, senha, String.valueOf(listaUsuarios.size() + 1));
+                listaUsuarios.add(novoUsuario);
+
+                System.out.println("Conta criada com sucesso!");
+                login();
+            } else {
+                System.out.println("Opção inválida!");
+            }
+
+        } else {
+
+            System.out.println("Deseja fazer login como usuário ou como admin?" +
+                    "\n1 - Usuário" + "\n2 - Admin" + "\n3 - Criar Conta");
+
+            int opcao = scan.nextInt();
+            scan.nextLine(); 
+
+            if (opcao == 1) {
+                login();
+            } else if (opcao == 2) {
+                loginadmin();
+            } else if (opcao == 3) {
+                System.out.println("Criar conta de usuário...");
+                System.out.println("Digite seu nome:");
+                String nome = scan.nextLine();
+                System.out.println("Digite seu CPF:");
+                String cpf = scan.nextLine();
+                System.out.println("Digite seu endereço:");
+                String endereco = scan.nextLine();
+                System.out.println("Digite seu telefone:");
+                String telefone = scan.nextLine();
+                System.out.println("Digite seu e-mail:");
+                String email = scan.nextLine();
+                System.out.println("Digite sua senha:");
+                String senha = scan.nextLine();
+
+                usuarios novoUsuario = new usuarios(nome, cpf, endereco, telefone, email, senha, String.valueOf(listaUsuarios.size() + 1));
+                listaUsuarios.add(novoUsuario);
+
+                System.out.println("Conta criada com sucesso!");
+                System.out.println("Deseja fazer login agora? (sim/não)");
+                String loginAgora = scan.nextLine();
+                if (loginAgora.equalsIgnoreCase("sim")) {
+                    login();
+                } else {
+                    System.out.println("Você pode fazer login mais tarde.");
+
+                    System.out.println("Deseja fazer login como usuário ou como admin?" +
+                    "\n1 - Usuário" + "\n2 - Admin" + "\n3 - Criar Conta");
+
+            int opcao2 = scan.nextInt();
+            scan.nextLine(); 
+
+            if (opcao2 == 1) {
+                login();
+            } else if (opcao2 == 2) {
+                loginadmin();
+            }
+                    
+                }
             } else {
                 System.out.println("Opção inválida!");
             }
@@ -48,14 +168,6 @@ public class licithub {
         } else {
             System.out.println("Senha incorreta!");
         }
-    }
-
-    public static void inicio() {
-        System.out.println("Bem-Vindo ao LicitHub!" +
-                "\nA maneira mais fácil de encontrar e participar de licitações públicas." +
-                "\n\nEncontre Oportunidades\nBusque licitações por categoria, região ou valor e nunca perca uma oportunidade." +
-                "\n\nAlertas Personalizados\nReceba notificações sobre novas licitações que correspondam aos seus critérios." +
-                "\n\nGestão Completa\nAcompanhe prazos, documentos e requisitos de cada licitação em um só lugar.");
     }
 
     public static void login() {
@@ -147,25 +259,67 @@ public class licithub {
     }
 
     public static void buscarLicitacoes() {
-        System.out.println("Buscando licitações...");
+        System.out.println("Buscando licitações disponíveis...");
+    
         if (listaLicitacoes.isEmpty()) {
             System.out.println("Nenhuma licitação encontrada no momento.");
         } else {
-            for (licitacoes l : listaLicitacoes) {
-                System.out.println(l);
+            for (int i = 0; i < listaLicitacoes.size(); i++) {
+                System.out.println("[" + i + "] " + listaLicitacoes.get(i));
+            }
+    
+            System.out.println("\nDeseja participar de alguma licitação? (sim/não)");
+            String resposta = scan.nextLine();
+    
+            if (resposta.equalsIgnoreCase("sim")) {
+                if (usuarioLogado == null) {
+                    System.out.println("Você precisa estar logado como usuário para participar de uma licitação.");
+                    login();
+                    return;
+                }
+    
+                System.out.println("Digite o número da licitação que deseja participar:");
+                int indice = scan.nextInt();
+                scan.nextLine();
+    
+                if (indice >= 0 && indice < listaLicitacoes.size()) {
+                    licitacoes licitacaoEscolhida = listaLicitacoes.get(indice);
+                    licitacaoEscolhida.adicionarParticipante(usuarioLogado);
+                    usuarioLogado.adicionarLicitacao(licitacaoEscolhida);
+                    System.out.println("Você foi adicionado à licitação com sucesso!");
+                } else {
+                    System.out.println("Número de licitação inválido.");
+                }
             }
         }
         menu();
     }
+    
+    
 
     public static void minhasLicitacoes() {
-        System.out.println("Exibindo licitações recentes...");
         if (usuarioLogado == null) {
             System.out.println("Você precisa fazer login primeiro.");
+            login();
             return;
         }
-        System.out.println("Você ainda não participou de nenhuma licitação.");
+    
+        ArrayList<licitacoes> minhas = usuarioLogado.getLicitacoesParticipando();
+    
+        if (minhas.isEmpty()) {
+            System.out.println("Você ainda não participou de nenhuma licitação.");
+        } else {
+            System.out.println("Licitações que você está participando:");
+            for (licitacoes l : minhas) {
+                System.out.println(l);
+                System.out.println("-----------");
+            }
+        }
+    
+        menu();
     }
+    
+    
 
     public static void minhaConta() {
         if (usuarioLogado == null) {
@@ -176,6 +330,7 @@ public class licithub {
         System.out.println("Nome: " + usuarioLogado.getNome() +
                 "\nE-mail: " + usuarioLogado.getEmail() +
                 "\nEndereço: " + usuarioLogado.getEndereco());
+                menu();
     }
 
     public static void cadastrarLicitacao() {
@@ -214,6 +369,7 @@ public class licithub {
             }
         }
         System.out.println("Licitação não encontrada.");
+        menuadmin();
     }
 
     public static void excluirLicitacao() {
@@ -228,6 +384,7 @@ public class licithub {
             }
         }
         System.out.println("Licitação não encontrada.");
+        menuadmin();
     }
 
     public static void cadastrarPrefeitura() {

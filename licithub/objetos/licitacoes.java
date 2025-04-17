@@ -1,5 +1,7 @@
 package objetos;
 
+import java.util.ArrayList;
+
 public class licitacoes {
 
     private String nome;
@@ -10,6 +12,8 @@ public class licitacoes {
     private String status;
     private String id;
 
+    private ArrayList<usuarios> participantes;
+
     public licitacoes(String nome, String descricao, String dataInicio, String dataFim, String categoria, String status, String id) {
         this.nome = nome;
         this.descricao = descricao;
@@ -18,8 +22,10 @@ public class licitacoes {
         this.categoria = categoria;
         this.status = status;
         this.id = id;
+        this.participantes = new ArrayList<>();
     }
 
+    // Getters
     public String getNome() {
         return nome;
     }
@@ -48,6 +54,11 @@ public class licitacoes {
         return id;
     }
 
+    public ArrayList<usuarios> getParticipantes() {
+        return participantes;
+    }
+
+    // Setters
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -76,10 +87,21 @@ public class licitacoes {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Nome: " + nome + "\nDescrição: " + descricao + "\nData de Início: " + dataInicio + "\nData de Fim: " + dataFim + "\nCategoria: " + categoria + "\nStatus: " + status + "\nID: " + id;
+    public void adicionarParticipante(usuarios usuario) {
+        if (!participantes.contains(usuario)) {
+            participantes.add(usuario);
+        }
     }
 
-    
+    @Override
+    public String toString() {
+        return "Nome: " + nome +
+                "\nDescrição: " + descricao +
+                "\nData de Início: " + dataInicio +
+                "\nData de Fim: " + dataFim +
+                "\nCategoria: " + categoria +
+                "\nStatus: " + status +
+                "\nID: " + id +
+                "\nParticipantes: " + participantes.size();
+    }
 }
